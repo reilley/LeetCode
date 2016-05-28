@@ -8,7 +8,7 @@ public class Solution {
     }
     
     private bool Search(int[,] matrix, int target, int up, int left, int down, int right){
-        if(up>down || left>right) return false;
+        if(up>down || left>right || up<0 || down>=matrix.GetLength(0) || left<0 || right>=matrix.GetLength(1)) return false;
         if(target<matrix[up,left] || target>matrix[down,right]) return false;
         if(target==matrix[up,left] || target==matrix[down,right]) return true;
         
@@ -27,7 +27,7 @@ public class Solution {
         } else{
             bool downright = Search(matrix, target, midRow+1, midCol+1, down, right);
             if(downright) return true;
-            bool upright = Search(matrix, target, up, midCol+1, midRow+1, right);
+            bool upright = Search(matrix, target, up, midCol+1, midRow, right);
             if(upright) return true;
             bool downleft = Search(matrix, target, midRow+1, left, down, midCol);
             if(downleft) return true;
