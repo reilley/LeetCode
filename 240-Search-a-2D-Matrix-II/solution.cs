@@ -1,5 +1,6 @@
 public class Solution {
     public bool SearchMatrix(int[,] matrix, int target) {
+        if(matrix==null) return false;
         int m = matrix.GetLength(0);
         int n = matrix.GetLength(1);
         
