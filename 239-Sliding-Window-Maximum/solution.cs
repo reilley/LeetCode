@@ -4,28 +4,18 @@ public class Solution {
         
         //use two-passes number arrays
         int[] left = new int[nums.Length];
+        left[0] = nums[0];
         int[] right = new int[nums.Length];
-        int i=0; 
-        while(i<nums.Length){
-            left[i] = nums[i];
-            for(int j=1; j<k && i+j<nums.Length; j++){
-                left[i+j] = Math.Max(left[i+j-1], nums[i+j]);
-            }
-            i += k;
+        right[nums.Length-1] = nums[nums.Length-1];
+        for(int i=1; i<nums.Length; i++){
+            left[i] = (i%k==0)? nums[i] : Math.Max(left[i-1], nums[i]);
+            int j = nums.Length - i -1;
+            right[j] = (j%k==k-1)? nums[j] : Math.Max(right[j+1], nums[j]);
         }
-        
-        i=0; 
-        while(i<nums.Length){
-            int m = Math.Min(nums.Length-1, i+k-1);
-            right[m] = nums[m];
-            for(int j=1; m-j>=i; j++){
-                right[m-j] = Math.Max(right[m-j+1], nums[m-j]);
-            }
-            i += k;
-        }
+
         
         int[] results = new int[nums.Length-k+1];
-        for(i=0; i<=nums.Length-k; i++){
+        for(int i=0; i<=nums.Length-k; i++){
             results[i] = Math.Max(left[i+k-1], right[i]);
         }
         return results;
