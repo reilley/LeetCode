@@ -1,6 +1,7 @@
 public class NumArray {
     private int[] sums;
     public NumArray(int[] nums) {
+        if(nums==null || nums.Length==0) return;
         sums = new int[nums.Length];
         sums[0] = nums[0];
         for(int i=1; i<nums.Length; i++){
