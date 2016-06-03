@@ -1,16 +1,14 @@
 public class NumArray {
     private int[] sums;
     public NumArray(int[] nums) {
-        if(nums==null || nums.Length==0) return;
-        sums = new int[nums.Length];
-        sums[0] = nums[0];
-        for(int i=1; i<nums.Length; i++){
-            sums[i] = sums[i-1] + nums[i];
+        sums = new int[nums.Length+1];
+        for(int i=0; i<nums.Length; i++){
+            sums[i+1] = sums[i] + nums[i];
         }
     }
 
     public int SumRange(int i, int j) {
-        return i==0 ? sums[j] : sums[j] - sums[i-1];
+        return sums[j+1] - sums[i];
     }
 }
 
