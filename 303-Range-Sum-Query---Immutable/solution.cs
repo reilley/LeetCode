@@ -9,7 +9,6 @@ public class NumArray {
     }
 
     public int SumRange(int i, int j) {
-        if(i==j) return nums[i];
         return i==0 ? sums[j] : sums[j] - sums[i-1];
     }
 }
