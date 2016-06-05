@@ -25,10 +25,11 @@ public class NumArray {
     }
 
     public int SumRange(int i, int j) {
-        return SumRange(i,j,0,array.Length-1);
+        return Sum(j) - Sum(i-1);
     }
     
     private int Sum(int index){
+        if(index==0) return 0;
         index += 1;
         int sum = 0;
         while(index > 0){
