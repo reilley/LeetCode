@@ -10,9 +10,10 @@ public class NumArray {
     }
     
     private void UpdateTree(int index, int val){
+        
+        int diff = val - array[index];
+        array[index] = val;
         index += 1;
-        int diff = val - array[i];
-        array[i] = val;
         while(index < BITree.Length){
             BITree[index] += diff;
             index += index & (-index);
