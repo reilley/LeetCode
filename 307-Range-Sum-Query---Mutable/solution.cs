@@ -3,7 +3,7 @@ public class NumArray {
     public NumArray(int[] nums) {
         array = new int[nums.Length];
         if(nums.Length==0) return;
-        helper(0, nums.Length-1);
+        helper(nums, 0, nums.Length-1);
     }
     
     private int helper(int nums, int left, int right){
