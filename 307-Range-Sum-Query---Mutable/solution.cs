@@ -6,7 +6,7 @@ public class NumArray {
         helper(nums, 0, nums.Length-1);
     }
     
-    private int helper(int nums, int left, int right){
+    private int helper(int[] nums, int left, int right){
         if(left>right) return 0;
         int mid = left + (right-left)/2;
         int l = helper(nums, left, mid-1);
