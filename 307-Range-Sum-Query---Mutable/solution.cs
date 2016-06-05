@@ -11,11 +11,10 @@ public class NumArray {
 
     public void Update(int i, int val) {
         if(i>=array.Length) return;
-        int diff = val - nums[i];
-        for(int j=i+1; j<nums.Length; j++){
+        int diff = val - SumRange(i,i);
+        for(int j=i+1; j<array.Length; j++){
             array[j] += diff;
         }
-        nums[i] = val;
     }
 
     public int SumRange(int i, int j) {
