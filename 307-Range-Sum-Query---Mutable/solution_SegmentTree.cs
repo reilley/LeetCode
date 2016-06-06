@@ -1,8 +1,8 @@
 public class NumArray {
     private class SegmentTreeNode{
-        int start, end;
-        int sum;
-        SegmentTreeNode left, right;
+        public int start, end;
+        public int sum;
+        public SegmentTreeNode left, right;
         public SegmentTreeNode(int s, int e, int val){
             start = s;
             end = e;
