@@ -45,7 +45,6 @@ public class NumArray {
     }
 
     public void Update(int i, int val) {
-        if(i>=array.Length) return;
         UpdateTree(i, val, root);
     }
 
