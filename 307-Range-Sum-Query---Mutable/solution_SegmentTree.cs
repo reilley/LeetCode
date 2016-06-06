@@ -32,7 +32,7 @@ public class NumArray {
     
     private int UpdateTree(int index, int val, SegmentTreeNode root){
         int diff = 0;
-        if(root.start==root.end && root.index==root.start) {
+        if(root.start==root.end && index==root.start) {
             diff = val - root.sum;
             root.sum = val;
             return diff;
