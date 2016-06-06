@@ -53,7 +53,7 @@ public class NumArray {
     }
     
     private int SumRange(SegmentTreeNode root, int i, int j){
-        if(i==start && j==end) return root.sum;
+        if(i==root.start && j==root.end) return root.sum;
         int mid = root.start + (root.end-root.start)/2;
         if(i>mid) 
             return SumRange(root.right, i, j);
