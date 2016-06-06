@@ -20,7 +20,7 @@ public class NumArray {
     private SegmentTreeNode  BuildTree(int[] nums, int s, int e){
         if(e<s) return null;
         if(s==e) return new SegmentTreeNode(s,e, nums[s]);
-        int mid = start + (end-start)/2;
+        int mid = s + (e-s)/2;
         
         var left = BuildTree(nums, s, mid);
         var right  = BuildTree(nums, mid+1, e);
