@@ -35,14 +35,15 @@ public class NumArray {
     }
     
     private int UpdateTree(int index, int val, SegmentTreeNode root){
+        int diff = 0;
         if(root.start==root.end && root.index==root.start) {
-            int diff = val - root.sum;
+            diff = val - root.sum;
             root.sum = val;
             return diff;
         }
         
         int mid = start + (end-start)/2;
-        int diff = UpdateTree(index, val, index > mid ? root.right : root.left);
+        diff = UpdateTree(index, val, index > mid ? root.right : root.left);
         root.sum += diff;
         return diff;
     }
