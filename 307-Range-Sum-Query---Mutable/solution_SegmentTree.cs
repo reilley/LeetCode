@@ -14,10 +14,6 @@ public class NumArray {
     
     private SegmentTreeNode root;
     public NumArray(int[] nums) {
-        array = new int[nums.Length];
-        for(int i=0; i<nums.Length; i++){
-            array[i] = nums[i];
-        }
         root = BuildTree(nums, 0, nums.Length-1);
     }
     
