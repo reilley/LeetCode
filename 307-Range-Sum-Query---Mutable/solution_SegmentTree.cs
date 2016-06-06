@@ -38,7 +38,7 @@ public class NumArray {
             return diff;
         }
         
-        int mid = start + (end-start)/2;
+        int mid = root.start + (root.end-root.start)/2;
         diff = UpdateTree(index, val, index > mid ? root.right : root.left);
         root.sum += diff;
         return diff;
