@@ -23,7 +23,12 @@ public class Twitter {
         List<Integer> list = new ArrayList<Integer>();
         if(!followTable.containsKey(userId)) return list;
         PriorityQueue<Tweet> pq = new PriorityQueue<Tweet>((t1,t2)-> t2.time - t1.time);
-        followTable.get(userId).forEach(id -> tweetsTable.get(id).forEach(pq::add));
+        //followTable.get(userId).forEach(id -> tweetsTable.get(id).forEach(pq::add));
+        for(int id : followTable.get(userId)){
+            if(!tweetsTable.containsKey(id)) continue;
+            for(Tweet t : tweetsTable.get(id)) 
+                pq.add(t);
+        }
 
         while(pq.size()>0 && list.size()<10){
             list.add(pq.poll().id);
@@ -41,7 +46,10 @@ public class Twitter {
     
     /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
     public void unfollow(int followerId, int followeeId) {
-        if(!followTable.containsKey(followerId) || !followTable.get(followerId).contains(followeeId)) return;
+        if(followerId==followeeId || 
+            !followTable.containsKey(followerId) || 
+            !followTable.get(followerId).contains(followeeId)) 
+            return;
         followTable.get(followerId).remove(followeeId);
     }
     
