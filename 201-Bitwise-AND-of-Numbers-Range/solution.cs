@@ -2,11 +2,15 @@ public class Solution {
     public int RangeBitwiseAnd(int m, int n) {
         if(m==0) return 0;
         if(m==n) return m;
-        long result = m;
-        for(long i=m+1; i<=n; i++){
-            result &= i;
-            if(result==0) return 0;
+        int h = m^n;
+        int count = 0;
+        //h = ~h;
+        while(h!=0){
+            h = h >> 1;
+            count++;
         }
-        return Convert.ToInt32(result);
+        n = n >> count;
+        n = n << count;
+        return n;
     }
 }
