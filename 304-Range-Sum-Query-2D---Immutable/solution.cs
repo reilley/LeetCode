@@ -2,8 +2,9 @@ public class NumMatrix {
     
     private int[,] _sums;
     public NumMatrix(int[,] matrix) {
+        
         _sums = new int[matrix.GetLength(0), matrix.GetLength(1)];
-        _sums[0,0] = matrix[0,0];
+
         for(int i=0; i<matrix.GetLength(0); i++){
             _sums[i,0] = matrix[i,0];
         }
@@ -16,6 +17,7 @@ public class NumMatrix {
     }
 
     public int SumRegion(int row1, int col1, int row2, int col2) {
+        if(row2>=_sums.GetLength(0) || col2>=_sums.GetLength(1)) return 0;
         int res = 0;
         for(int i=row1; i<=row2; i++){
             res += _sums[i, col2];
