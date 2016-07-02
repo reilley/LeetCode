@@ -9,18 +9,16 @@ public class Solution {
         int maxIndex = -1;
         int globalMax = -1;
         for(int i=0; i<nums.Length; i++){
-            int max = 1;
-            int lastIndex = -1;
+            dp[i] = 1;
+            lastPts[i] = -1;
             for(int j=0; j<i; j++){
-                if(nums[i]%nums[j] ==0 && dp[j] +1 >max){
-                    max = dp[j] +1;
-                    lastIndex = j;
+                if(nums[i]%nums[j] ==0 && dp[j] +1 >dp[i]){
+                    dp[i] = dp[j] +1;
+                    lastPts[i] = j;
                 }
             }
-            dp[i] = max;
-            lastPts[i] = lastIndex;
-            if(max > globalMax){
-                globalMax = max;
+            if(dp[i] > globalMax){
+                globalMax = dp[i];
                 maxIndex = i;
             }
         }
