@@ -40,7 +40,7 @@ public class WordDictionary {
         if(word[pos]!='.'){
             if(Search(word, pos, node.nodes[word[pos]-'a'])) return true;
         } else{
-            if(node.nodes.Any(x => Search(word, pos, x))) return true;
+            if(node.nodes.Any(x => x!= null && Search(word, pos, x))) return true;
         }
         return false;
     }
