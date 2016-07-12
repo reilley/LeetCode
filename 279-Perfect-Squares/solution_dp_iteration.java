@@ -17,6 +17,7 @@ public class Solution {
         for(int i=1; i<=n; i++){
             for(int j : list){
                 if(i+j > n) continue;
+                if(dp[n]>0 && dp[n]<dp[i] || dp[i]==0) break;
                 dp[i+j] = dp[i+j] ==0 ? dp[i]+1 : Math.min(dp[i+j], dp[i]+1); 
             }
         }
