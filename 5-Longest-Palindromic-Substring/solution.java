@@ -16,6 +16,7 @@ public class Solution {
             if (sb.length() > ans.length()) {
                 ans = sb.toString();
             }
+            i = j;
         }
         
         return ans;
